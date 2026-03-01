@@ -205,30 +205,172 @@ const Solution = () => (
   </section>
 );
 
-const Curriculum = () => (
-  <section id="curriculum" className="py-32 px-6">
-    <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-24">
-        <h2 className="text-5xl md:text-7xl font-display uppercase leading-[0.9]">The Curriculum</h2>
-        <p className="text-white/40 mt-6 font-bold uppercase tracking-widest text-[10px]">Everything you need to dominate the digital economy</p>
-      </div>
-      <div className="space-y-4">
-        {[
-          "The 2026 AI Landscape: Tools that actually matter",
-          "Niche Arbitrage: Finding hidden digital goldmines",
-          "Advanced Prompt Engineering for Creators",
-          "Visual Asset Generation (No design skills required)",
-          "Storefront Automation: Gumroad & Lemon Squeezy",
-          "The Viral Traffic Engine: Scaling with AI content",
-          "Retention Systems: Turning buyers into fans"
-        ].map((item, i) => (
-          <div key={i} className="flex items-center gap-6 p-8 glass rounded-2xl hover:bg-white/10 transition-all cursor-default border-white/5 group">
-            <div className="w-8 h-8 rounded-full bg-brand-primary/10 flex items-center justify-center text-brand-primary group-hover:bg-brand-primary group-hover:text-black transition-colors">
-              <CheckCircle2 className="w-4 h-4" />
-            </div>
-            <span className="text-lg font-bold uppercase tracking-widest text-white/80">{item}</span>
+const Curriculum = () => {
+  const [activePhase, setActivePhase] = useState(0);
+  
+  const phases = [
+    {
+      title: "PHASE 1 — Foundations",
+      subtitle: "Mindset + Strategy",
+      modules: [
+        { name: "Module 1: The Digital Product Opportunity", topics: ["Why digital products are powerful", "Passive income vs active income", "Why AI changes the game", "Realistic expectations", "Income models explained"] },
+        { name: "Module 2: Understanding Digital Products", topics: ["What counts as a digital product?", "Printables, Planners, Notion templates", "Ebooks, Worksheets, Prompt packs", "Online mini-courses", "Low-ticket vs high-ticket strategy"] }
+      ]
+    },
+    {
+      title: "PHASE 2 — Finding Ideas",
+      subtitle: "Niche Selection Mastery",
+      modules: [
+        { name: "Module 3: Niche Selection Mastery", topics: ["What is a niche?", "How to avoid saturated markets", "Micro-niche strategy", "Profitable audience types (Moms, Teachers, etc.)"] },
+        { name: "Module 4: Validating Product Ideas", topics: ["Using Etsy search", "Using AI for trend research", "Checking competition", "Demand vs competition formula", "How to spot money opportunities"] }
+      ]
+    },
+    {
+      title: "PHASE 3 — AI Creation",
+      subtitle: "Product Creation System",
+      modules: [
+        { name: "Module 5: AI Product Creation System", topics: ["Using ChatGPT / AI tools", "Creating ebooks, printables, planners", "Creating journals, worksheets", "Refining AI outputs"] },
+        { name: "Module 6: Designing Without Design Skills", topics: ["Using Canva & Templates", "Clean layout rules", "Fonts and spacing basics", "Making products look premium"] }
+      ]
+    },
+    {
+      title: "PHASE 4 — Packaging",
+      subtitle: "Packaging & Pricing",
+      modules: [
+        { name: "Module 7: Turning Files Into Assets", topics: ["PDF formatting", "Bundling products", "Creating variations & bonuses", "Product positioning"] },
+        { name: "Module 8: Pricing Strategy", topics: ["Low-ticket strategy ($5–$29)", "Bundle strategy", "Value stacking", "Psychological pricing", "Anchoring"] }
+      ]
+    },
+    {
+      title: "PHASE 5 — Selling",
+      subtitle: "Selling Platforms",
+      modules: [
+        { name: "Module 9: Selling on Etsy", topics: ["Setting up shop", "Writing product titles & SEO", "Descriptions & Thumbnails"] },
+        { name: "Module 10: Selling on Gumroad", topics: ["Account setup", "Landing page optimization", "Direct marketing"] },
+        { name: "Module 11: Other Platforms", topics: ["Shopify, Stan Store, TikTok Shop", "Xiaohongshu (China Strategy)"] }
+      ]
+    },
+    {
+      title: "PHASE 6 — Marketing",
+      subtitle: "Marketing & Traffic",
+      modules: [
+        { name: "Module 12: Organic Traffic Strategy", topics: ["TikTok, Reels, YT Shorts", "Content angles", "Authority positioning"] },
+        { name: "Module 13: AI for Marketing", topics: ["Writing descriptions & hooks", "Generating scripts", "Email sequences & Sales copy"] }
+      ]
+    },
+    {
+      title: "PHASE 7 — Scaling",
+      subtitle: "Building a Product Ecosystem",
+      modules: [
+        { name: "Module 14: Building a Product Ecosystem", topics: ["Upsells & Cross-sells", "Bundles & Subscriptions"] },
+        { name: "Module 15: Systemizing the Business", topics: ["Batch creation", "Automation tools", "Outsourcing", "Building repeatable systems"] }
+      ]
+    }
+  ];
+
+  return (
+    <section id="curriculum" className="py-32 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-24">
+          <h2 className="text-5xl md:text-7xl font-display uppercase leading-[0.9]">The Curriculum</h2>
+          <p className="text-white/40 mt-6 font-bold uppercase tracking-widest text-[10px]">Everything you need to dominate the digital economy</p>
+        </div>
+        
+        <div className="grid lg:grid-cols-[350px_1fr] gap-12">
+          {/* Phase Navigation */}
+          <div className="space-y-2">
+            {phases.map((phase, i) => (
+              <button
+                key={i}
+                onClick={() => setActivePhase(i)}
+                className={`w-full text-left p-6 rounded-2xl transition-all border ${
+                  activePhase === i 
+                    ? "bg-brand-primary text-black border-brand-primary" 
+                    : "bg-white/5 text-white/50 border-white/5 hover:bg-white/10"
+                }`}
+              >
+                <p className="text-[10px] font-bold uppercase tracking-widest mb-1 opacity-60">Phase {i + 1}</p>
+                <p className="font-display text-xl uppercase leading-none">{phase.title.split(' — ')[1]}</p>
+              </button>
+            ))}
           </div>
-        ))}
+
+          {/* Phase Content */}
+          <div className="glass p-8 md:p-12 rounded-[32px] border-white/5">
+            <div className="mb-12">
+              <span className="text-brand-primary font-bold uppercase tracking-[0.3em] text-[10px]">Phase {activePhase + 1}</span>
+              <h3 className="text-3xl md:text-5xl font-display uppercase mt-2">{phases[activePhase].subtitle}</h3>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-8">
+              {phases[activePhase].modules.map((module, i) => (
+                <div key={i} className="space-y-6">
+                  <h4 className="text-lg font-bold uppercase tracking-widest text-brand-primary">{module.name}</h4>
+                  <ul className="space-y-3">
+                    {module.topics.map((topic, j) => (
+                      <li key={j} className="flex items-start gap-3 text-sm text-white/50 font-medium">
+                        <CheckCircle2 className="w-4 h-4 text-brand-primary mt-0.5 flex-shrink-0" />
+                        <span>{topic}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Bonus Modules */}
+        <div className="mt-24">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-display uppercase">💎 Bonus Modules</h3>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              "50 Profitable Ideas",
+              "AI Prompt Library",
+              "Canva Template Pack",
+              "Description Templates",
+              "Content Hook Templates",
+              "Launch Checklist"
+            ].map((bonus, i) => (
+              <div key={i} className="glass p-6 rounded-2xl border-white/5 text-center">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-white/60">{bonus}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const Transformation = () => (
+  <section className="py-32 px-6 bg-brand-primary text-black">
+    <div className="max-w-7xl mx-auto">
+      <div className="grid md:grid-cols-2 gap-24 items-center">
+        <div>
+          <h2 className="text-5xl md:text-8xl font-display uppercase leading-[0.8] mb-12">
+            The <br />Transformation <br />Promise.
+          </h2>
+          <p className="text-xl font-bold uppercase tracking-widest opacity-60">By the end of this course, you will:</p>
+        </div>
+        <div className="space-y-8">
+          {[
+            "Identify high-profit, low-competition niches",
+            "Create 3–5 professional digital products from scratch",
+            "Launch your store on at least one major platform",
+            "Master organic traffic generation (TikTok, Reels, Shorts)",
+            "Have a repeatable, AI-powered income system"
+          ].map((item, i) => (
+            <div key={i} className="flex items-center gap-6 border-b border-black/10 pb-6">
+              <div className="w-10 h-10 rounded-full bg-black flex items-center justify-center text-brand-primary font-display text-xl">
+                {i + 1}
+              </div>
+              <span className="text-xl font-bold uppercase tracking-tight leading-tight">{item}</span>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
@@ -298,8 +440,8 @@ const Pricing = () => (
         
         <div className="text-center md:text-right">
           <div className="mb-8">
-            <span className="text-white/20 line-through font-display text-4xl mr-6">$497</span>
-            <span className="text-8xl font-display text-brand-primary">$49.99</span>
+            <span className="text-white/20 line-through font-display text-4xl mr-6">$197</span>
+            <span className="text-8xl font-display text-brand-primary">$49</span>
           </div>
           <a 
             href="https://digitalbagx.com/"
@@ -400,6 +542,7 @@ export default function App() {
         <Problem />
         <Solution />
         <Curriculum />
+        <Transformation />
         <Testimonials />
         <Pricing />
         <FAQ />
@@ -419,7 +562,7 @@ export default function App() {
               rel="noopener noreferrer"
               className="inline-block bg-brand-primary text-black px-16 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-brand-primary/40"
             >
-              Enroll Now - $49.99
+              Enroll Now - $49
             </a>
           </motion.div>
         </section>
