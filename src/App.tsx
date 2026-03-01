@@ -38,9 +38,14 @@ const Navbar = () => (
         <a href="#curriculum" className="hover:text-brand-primary transition-colors">Curriculum</a>
         <a href="#pricing" className="hover:text-brand-primary transition-colors">Pricing</a>
       </div>
-      <button className="text-[10px] font-bold uppercase tracking-widest text-brand-primary hover:text-white transition-colors">
+      <a 
+        href="https://digitalbagx.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-[10px] font-bold uppercase tracking-widest text-brand-primary hover:text-white transition-colors"
+      >
         Enroll Now
-      </button>
+      </a>
     </div>
   </nav>
 );
@@ -99,9 +104,14 @@ const Hero = () => (
 
       {/* Buttons */}
       <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-        <button className="bg-brand-primary text-black px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-transform shadow-lg shadow-brand-primary/20">
+        <a 
+          href="https://digitalbagx.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="bg-brand-primary text-black px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest flex items-center gap-2 hover:scale-105 transition-transform shadow-lg shadow-brand-primary/20"
+        >
           Start Building Today <ArrowRight className="w-4 h-4" />
-        </button>
+        </a>
         <button className="bg-white/5 border border-white/10 text-white px-10 py-4 rounded-full font-bold text-sm uppercase tracking-widest hover:bg-white/10 transition-colors">
           View Curriculum
         </button>
@@ -291,9 +301,14 @@ const Pricing = () => (
             <span className="text-white/20 line-through font-display text-4xl mr-6">$497</span>
             <span className="text-8xl font-display text-brand-primary">$49.99</span>
           </div>
-          <button className="w-full bg-brand-primary text-black px-8 py-6 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-brand-primary/20 mb-6">
+          <a 
+            href="https://digitalbagx.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-brand-primary text-black px-8 py-6 rounded-2xl font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-brand-primary/20 mb-6 text-center"
+          >
             Get Instant Access
-          </button>
+          </a>
           <p className="text-[10px] font-bold uppercase tracking-widest text-white/30">30-Day Money Back Guarantee. No questions asked.</p>
         </div>
       </div>
@@ -398,9 +413,14 @@ export default function App() {
           >
             <h2 className="text-5xl md:text-8xl font-display uppercase mb-12 leading-[0.9]">Ready To <br />Build?</h2>
             <p className="text-lg text-white/40 mb-12 font-medium">Join 1,200+ creators who are already using AI to change their lives.</p>
-            <button className="bg-brand-primary text-black px-16 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-brand-primary/40">
+            <a 
+              href="https://digitalbagx.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-brand-primary text-black px-16 py-6 rounded-full font-bold text-sm uppercase tracking-widest hover:scale-105 transition-transform shadow-2xl shadow-brand-primary/40"
+            >
               Enroll Now - $49.99
-            </button>
+            </a>
           </motion.div>
         </section>
       </main>
